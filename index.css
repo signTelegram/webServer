@@ -1,0 +1,184 @@
+.all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.tel-img{
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    margin-bottom: 25px;
+    margin-top: 35px;
+}
+.all h4{
+    font-size: 19.5px;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+.all p{
+    margin: 0px;
+    font-size: 14px;
+}
+#form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.input{
+    text-align: center;
+    width: 95%;
+    border: 1.1px solid #9e9d9a ;
+    height: 2.9rem;
+    border-radius: 6px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input label{
+    position: absolute;
+    background-color:#ffffff;
+    color:#9e9d9a ;
+    left: 10px;
+    top: -13px;
+    font-size: 13px;
+    padding: 0px 5px 0px 5px;
+}
+.input:hover{
+    border: 2px solid #338feb;
+}
+.input label:hover{
+    color: #338feb;
+}
+
+.input input{
+    width:93%;
+    border:none;
+    background-color: rgba(255, 222, 173, 0);
+    font-size: large;
+    padding-left: 8px;
+    color: black;
+}
+.input span{
+    padding-left: 10px;
+    padding-right: 6px;
+    font-weight: 500;
+}
+#input{
+    width: 100%;
+    height: 100%;
+    
+}
+#input:focus{
+    outline: none;
+}
+.kh{
+    position: absolute;
+    left: 80px;
+}
+.country{
+    margin-top: 44px;
+    margin-bottom: 25px;
+}
+.send{
+    width: 96%;
+    height: 2.8rem;
+    margin-top: 25px;
+    background-color: #338feb;
+    border-radius: 8px;
+    border: none;
+    color: whitesmoke;
+    font-size: 20px;
+}
+.Code{
+    width: 100%;
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Code div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.monkey{
+    width: 120px;
+    height: 120px;
+    margin-bottom: 25px;
+}
+.Code div h1{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 12px;
+}
+.Code div p{
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4d4d4d;
+}
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Code div input{
+    padding-left: 10px;
+    width: 95%;
+    border: 1.1px solid #9e9d9a ;
+    height: 2.9rem;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 44px;
+    font-size: 17px;
+}
+.Code div input:focus{
+    outline: none;
+}
+.Code div input:hover{
+    border: 2px solid #338feb;
+}
+
+.send img{
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+    animation: spin 1s infinite;
+}      
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.falseCode{
+    background-color: #ff0b0b62;
+}
+.success{
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.success h1{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* #338feb */
